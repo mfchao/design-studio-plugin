@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>[Project] Case Study</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet">
+<style>
+/* Tokens. Replace accent with the project's own accent from styleguide.md. */
+:root{
+  --bg:#f7f6f3; --surface:#ffffff; --ink:#1b1a18; --muted:#5f5d58; --line:#e2dfd8;
+  --accent:#1f6f5c; --accent-soft:#e3efe9; --bad:#b42318; --good:#1f7a3a;
+  --radius:10px; --gutter:16px; --max:1120px;
+  --sans:"Instrument Sans",system-ui,sans-serif; --serif:"Newsreader",Georgia,serif;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#141413; --surface:#1d1c1a; --ink:#f0eee9; --muted:#a8a59d; --line:#33312d;
+    --accent:#6cc3a6; --accent-soft:#1f2f29; --bad:#f97066; --good:#6ccf8e; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#141413; --surface:#1d1c1a; --ink:#f0eee9; --muted:#a8a59d; --line:#33312d;
+  --accent:#6cc3a6; --accent-soft:#1f2f29; --bad:#f97066; --good:#6ccf8e; color-scheme: dark;
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--ink)}
+body{font:16px/1.6 var(--sans);overflow-x:hidden}
+img,svg{max-width:100%;height:auto;display:block}
+main{max-width:var(--max);margin:0 auto;padding:0 var(--gutter)}
+section{padding:72px 0;border-top:1px solid var(--line)}
+section:first-child{border-top:0}
+h1,h2{font-family:var(--serif);font-weight:500;line-height:1.15;margin:0 0 16px}
+h1{font-size:clamp(36px,6vw,64px)} h2{font-size:clamp(26px,3.5vw,38px)}
+h3{font-size:18px;margin:24px 0 8px}
+p{max-width:68ch;color:var(--ink)} .muted{color:var(--muted)}
+.grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr))}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:20px}
+table{width:100%;border-collapse:collapse;font-size:14px}
+.table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-weight:600;color:var(--muted)}
+figure{margin:0} figcaption{font-size:14px;color:var(--muted);margin-top:8px}
+.shot{border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:var(--surface)}
+.annot{position:relative} .pin{position:absolute;width:28px;height:28px;border-radius:50%;background:var(--accent);color:var(--bg);font:600 13px/28px var(--sans);text-align:center;transform:translate(-50%,-50%)}
+.quote{font-family:var(--serif);font-size:20px;border-left:3px solid var(--accent);padding-left:16px}
+.journey{display:grid;grid-template-columns:120px repeat(var(--stages,5),minmax(160px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+.journey>div{background:var(--surface);padding:12px;font-size:14px}
+.journey .rowh{font-weight:600;color:var(--muted)}
+.mermaid{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:16px;overflow-x:auto}
+.chart text{fill:var(--muted);font:12px var(--sans)} .chart .line{stroke:var(--accent);fill:none;stroke-width:2.5}
+.chart .target{stroke:var(--ink);stroke-dasharray:4 4} .chart .axis{stroke:var(--line)}
+@media print{section{break-inside:avoid;padding:32px 0}}
+</style>
+</head>
+<body>
+<main>
+  <!-- Sections, in order: cover, problem, users (+journey), goals, research, flow (before/after),
+       visual direction, exploration (10 grid), iteration (timeline + score chart), final (annotated), outcome. -->
+  <section id="cover"></section>
+</main>
+<script type="module">
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11.4.1/dist/mermaid.esm.min.mjs';
+  const dark = document.documentElement.dataset.theme === 'dark' || (!document.documentElement.dataset.theme && matchMedia('(prefers-color-scheme: dark)').matches);
+  mermaid.initialize({ startOnLoad: true, theme: dark ? 'dark' : 'neutral', fontFamily: 'Instrument Sans, system-ui, sans-serif' });
+</script>
+</body>
+</html>

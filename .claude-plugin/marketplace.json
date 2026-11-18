@@ -1,0 +1,12 @@
+{
+  "name": "mfchao-design-studio",
+  "description": "Design Studio: a guided 7-section UX/UI design workflow plugin for Claude Code.",
+  "owner": { "name": "mfchao", "url": "https://github.com/mfchao" },
+  "plugins": [
+    {
+      "name": "design-studio",
+      "source": "./",
+      "description": "Guided 7-section design workflow with subagents, inspo + awwwards references, anti-slop checks and multi-model critics."
+    }
+  ]
+}

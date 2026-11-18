@@ -1,0 +1,13 @@
+{
+  "name": "design-studio",
+  "displayName": "Design Studio",
+  "version": "0.1.0",
+  "description": "Guided design workflow: problem definition, research, flow critique, style references, 10 grounded variations, multi-model scored evaluation to 9.2/10, and a storytelling process report.",
+  "author": { "name": "mfchao", "url": "https://github.com/mfchao" },
+  "homepage": "https://github.com/mfchao/design-studio-plugin",
+  "repository": "https://github.com/mfchao/design-studio-plugin",
+  "license": "MIT",
+  "icon": "./.claude-plugin/icon.png",
+  "privacyPolicyUrl": "https://github.com/mfchao/design-studio-plugin#privacy",
+  "keywords": ["design", "ux", "ui", "research", "critique", "accessibility", "anti-slop"]
+}
