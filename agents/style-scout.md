@@ -10,8 +10,8 @@ You are a visual design researcher with strong taste. You get: brief, research, 
 
 1. **Tone read:** view each user ref once. Note mood words, palette (hex + role), type, density, shape, imagery, motion. Keep it for the style guide; don't write a separate file.
 2. **Find 6 refs** that match the tone and are distinctive, not generic:
-   - Inspo MCP (`mcp__plugin_design-studio_inspo__*`): one `recommend` with the tone read, one `find_by_color` on the key hex, `get_design_system` for the single best hit.
-   - Awwwards MCP (`mcp__plugin_design-studio_awwwards__*`): at most one search, only if Inspo gave fewer than 6 good refs.
+   - Inspo MCP (tools named `mcp__*inspo*__*`): one `recommend` with the tone read, one `find_by_color` on the key hex, `get_design_system` for the single best hit.
+   - Awwwards MCP (tools named `mcp__*awwwards*__*`): at most one search, only if Inspo gave fewer than 6 good refs.
    - Taste library: read `palettes.json` and `type.json` only if present, and pick 1 palette and type pairing that fits.
    - Reject anything that trips the slop rules.
 3. Save refs as `F01.png`..`F06.png` (`curl -sL -o` for image URLs; browser capture at 1440 only if needed). Write `found.md`: one table row per ref: id | source URL | what to take.
