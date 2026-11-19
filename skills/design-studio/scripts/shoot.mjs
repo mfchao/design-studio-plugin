@@ -1,8 +1,9 @@
 #!/usr/bin/env node
 /*
-  Screenshot HTML designs at desktop and mobile widths with agent-browser.
-    node shoot.mjs --out <dir> [--states] [--full] [--widths 1440x900,390x844] <file.html|url> [...]
-  Writes <dir>/<name>-desktop.png and <name>-mobile.png (one per width; names: desktop, mobile, w<W>).
+  Screenshot HTML designs with agent-browser. Desktop only (1440x900) by default.
+    node shoot.mjs --out <dir> [--states] [--full] [--mobile] [--widths 1440x900,390x844] <file.html|url> [...]
+  Writes <dir>/<name>-desktop.png. --mobile adds <name>-mobile.png (390x844); only use it when the brief asks for mobile.
+  Names per width: desktop, mobile, w<W>.
   --states also writes:
     <name>-focus.png       first focusable element focused (keyboard-style focus ring)
     <name>-<state>.png     for each state listed in <html data-states="empty error loading">;
@@ -12,10 +13,10 @@ import { mkdirSync } from 'node:fs';
 import { basename, extname, join } from 'node:path';
 import { ab, evalJs, toUrl, die, parseArgs } from './_ab.mjs';
 
-const { opts, pos } = parseArgs(process.argv.slice(2), { states: 'bool', full: 'bool' });
-if (!opts.out || !pos.length) die('usage: shoot.mjs --out <dir> [--states] [--full] [--widths 1440x900,390x844] <files...>', 2);
+const { opts, pos } = parseArgs(process.argv.slice(2), { states: 'bool', full: 'bool', mobile: 'bool' });
+if (!opts.out || !pos.length) die('usage: shoot.mjs --out <dir> [--states] [--full] [--mobile] [--widths 1440x900,390x844] <files...>', 2);
 mkdirSync(opts.out, { recursive: true });
-const widths = (opts.widths || '1440x900,390x844').split(',').map((s) => s.split('x').map(Number));
+const widths = (opts.widths || (opts.mobile ? '1440x900,390x844' : '1440x900')).split(',').map((s) => s.split('x').map(Number));
 const label = ([w]) => (w >= 1024 ? 'desktop' : w <= 480 ? 'mobile' : `w${w}`);
 const full = opts.full !== false; // full page by default
 const written = [];

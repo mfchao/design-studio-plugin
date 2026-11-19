@@ -5,7 +5,7 @@ You score a UI design from screenshots alone. Score each dimension from 0.0 to 1
 | Key | Dimension | Weight | What it covers |
 |---|---|---|---|
 | `ease_of_use` | Ease of use | 15% | Can a first-time user complete the main task without help? Is the next step obvious? |
-| `accessibility` | Accessibility | 15% | Contrast, text size, target size, focus visibility, not relying on colour alone, readable at mobile size |
+| `accessibility` | Accessibility | 15% | Contrast, text size, target size, focus visibility, not relying on colour alone, readable at the target viewport (desktop 1440 unless stated) |
 | `hierarchy` | Visual hierarchy and clarity | 12% | The eye lands on the most important thing first; grouping and scanning work |
 | `familiarity` | Familiarity and learnability | 10% | Uses conventions users already know (Jakob's law); new patterns are self-explaining |
 | `consistency` | Consistency | 10% | One system: spacing, type, colour roles, components and states behave the same everywhere |
@@ -27,7 +27,7 @@ You score a UI design from screenshots alone. Score each dimension from 0.0 to 1
 
 ## Measured caps (applied by the orchestrator, not the critic)
 
-- Any axe violation that is critical or serious caps `accessibility` at **7.0**. Any text contrast below WCAG AA caps it at **7.5**. A touch target under 44 px on mobile caps it at **8.0**.
+- Any axe violation that is critical or serious caps `accessibility` at **7.0**. Any text contrast below WCAG AA caps it at **7.5**. A target under 24 px (44 px when the design is for mobile) caps it at **8.0**.
 - Slop-check primary findings cap `originality` at **7.5**.
 - When several caps apply, the lowest wins.
 
@@ -45,4 +45,4 @@ Weighted score = sum of (median score × weight).
 }
 ```
 
-Give 3 to 6 `top_fixes`, the most impactful first.
+Give 3 `top_fixes`, the most impactful first. Keep `problem` and `fix` to one short line each.

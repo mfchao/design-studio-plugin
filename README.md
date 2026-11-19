@@ -4,13 +4,13 @@ A Claude Code plugin that walks you through a full design process in seven secti
 
 | # | Section | What happens |
 |---|---|---|
-| 1 | Problem definition | A grill-style interview (Enter skips a question). Saved to `.design-studio/brief.md` |
+| 1 | Problem definition | A short interview (8 core questions, one at a time). Saved to `.design-studio/brief.md` |
 | 2 | Research | Theory and benchmarking subagents (web + Inspo + Awwwards), merged into a report |
 | 3 | Flow critique | A critique of logic only, with a revised Mermaid flow |
 | 4 | Style and references | A tone read, more refs from Inspo/Awwwards/tasteskill, a moodboard, your approval, then a style guide |
-| 5 | Design | 10 grounded HTML variations, anti-slop gated, then iteration rounds |
-| 6 | Evaluation | Sonnet, Haiku and Fable critics with zero context, plus axe and slop checks, looped until ≥ 9.2/10 |
-| 7 | Report | A storytelling case-study HTML report with diagrams, published as a private artifact |
+| 5 | Design | 6 grounded desktop HTML variations (up to 10 on request), anti-slop gated, then iteration rounds |
+| 6 | Evaluation | Haiku and Sonnet critics with zero context (Fable confirms the final score), plus axe and slop checks, looped until ≥ 9.2/10 (asks after 4 rounds) |
+| 7 | Report | A short (~600-word) case-study HTML report with diagrams, published as a private artifact |
 
 ## Install
 
@@ -45,18 +45,22 @@ Optional companions, picked up automatically if installed: **cook** (`~/.agents/
 ## Use
 
 ```
-/design-studio:start a mobile onboarding flow for a habit tracker
+/design-studio:start an onboarding flow for a habit tracker web app
 /design-studio:goto 4          # jump to a section
 /design-studio:doctor          # check dependencies
 ```
 You can also say "start a design studio project". All state lives in `.design-studio/` in your project folder, so you can stop and resume in a later session.
 
+**Defaults:** designs target web desktop (1440 × 900). Say "mobile" or "responsive" in your brief to get mobile layouts and shots.
+
+**Usage limits:** subagents run on Sonnet or Haiku with tool-call caps, documents have word caps, and evaluation stops after 4 rounds to ask. If you're close to your limit, say "lean mode": the studio skips optional steps and does small edits without spawning agents.
+
 ## Scripts (`skills/design-studio/scripts/`)
 
 - `slop-check.mjs <files|dir> [--json]`: Impeccable, taste copy-lint and the built-in ban list. Exit 2 means there are findings.
-- `shoot.mjs --out dir [--states] <html...>`: desktop and mobile screenshots, plus focus and `data-states` shots.
+- `shoot.mjs --out dir [--states] [--mobile] <html...>`: desktop screenshots (mobile with `--mobile`), plus focus and `data-states` shots.
 - `contact-sheet.mjs --out path [--labels] <images...>`: a grid as HTML and PNG.
-- `axe.mjs <html> --out x.json`: axe-core WCAG 2.2 AA, contrast, and touch targets under 44 px.
+- `axe.mjs <html> --out x.json [--mobile]`: axe-core WCAG 2.2 AA, contrast, and targets under 24 px (44 px with `--mobile`).
 - `doctor.mjs`: checks dependencies.
 
 ## Credits

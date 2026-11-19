@@ -1,15 +1,13 @@
 # Style guide: [project]
 
-## Tone
-Mood words: | Density: | Shape language: | Imagery: | Motion feel:
+**Tone:** [3 mood words] | density: | shape: | imagery: | motion:
 
-## Approved references
-| Id | Source | What to take (light, colour, type, layout, component) |
-|---|---|---|
+## Approved refs
+| Id | Take |
+|---|---|
 
 ## Tokens
-### Colour roles
-| Role | Hex | Text on it (contrast ratio, AA?) |
+| Role | Hex | Contrast on bg |
 |---|---|---|
 | bg | | |
 | surface | | |
@@ -17,15 +15,10 @@ Mood words: | Density: | Shape language: | Imagery: | Motion feel:
 | muted | | |
 | accent | | |
 | accent-ink | | |
-| danger / success / warning | | |
+| danger / success | | |
 
-### Type
-Families (with reason): | Scale (px): | Weights: | Line heights: | Tracking:
+**Type:** [families + one-word reason] | scale px: | weights:
+**Space:** | **Radius:** | **Elevation:** | **Motion:** [duration, easing]
 
-### Space, shape, depth, motion
-Spacing scale: | Radius: | Borders: | Elevation: | Durations and easing:
-
-## Do
--
-## Don't
-- Everything in references/slop.md, plus:
+**Do:** -
+**Don't:** slop.md, plus -

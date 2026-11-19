@@ -5,7 +5,7 @@
 ## Automated checks: `scripts/slop-check.mjs <files|dir> [--json]`
 
 It runs three detectors and merges their output:
-1. **Impeccable** (`npx -y impeccable detect --json`): 60+ deterministic rules, including purple and violet gradients, gradient text, side-tab accent borders, cyan-on-dark, glowing dark mode, overused fonts (Inter, Roboto as the only face), flat type hierarchy, nested cards, everything centred, monotonous spacing, bounce or elastic easing, layout-property transitions, tiny body text, cramped padding, long lines, small touch targets, and WCAG contrast failures.
+1. **Impeccable** (`npx -y impeccable detect --json`): 60+ deterministic rules, including purple and violet gradients, gradient text, side-tab accent borders, cyan-on-dark, glowing dark mode, overused fonts (Inter, Roboto as the only face), flat type hierarchy, nested cards, everything centred, monotonous spacing, bounce or elastic easing, layout-property transitions, tiny body text, cramped padding, long lines, small targets, and WCAG contrast failures.
 2. **taste copy-lint** (if tasteskill is installed): model-written copy tells.
 3. **Ban-list scan** (built in): the cook and taste ban list below, where it can be detected in code.
 
